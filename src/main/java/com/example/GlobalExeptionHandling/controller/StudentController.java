@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.GlobalExeptionHandling.exception.StudentNotFoundException;
 import com.example.GlobalExeptionHandling.model.Student;
 import com.example.GlobalExeptionHandling.service.StudentService;
 
@@ -30,7 +29,7 @@ public class StudentController {
 	private final StudentService studentService;
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Student> getStudent(@PathVariable("id") int id) throws StudentNotFoundException {
+	public ResponseEntity<Student> getStudent(@PathVariable("id") int id)  {
 		log.debug("Entered into GetStudent method");
 		Student studentById = studentService.getStudentById(id);
 		return ResponseEntity.ok(studentById);
@@ -43,13 +42,13 @@ public class StudentController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Student> updateStudent(@RequestBody Student student) throws StudentNotFoundException{
+	public ResponseEntity<Student> updateStudent(@RequestBody Student student) {
 	    Student updatedStudent = studentService.updateStudent(student);
 	    return ResponseEntity.ok(updatedStudent);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Student> deleteStudent(@PathVariable("id") int id) throws StudentNotFoundException{
+	public ResponseEntity<Student> deleteStudent(@PathVariable("id") int id) {
 	     studentService.deleteStudent(id);
 	     return ResponseEntity.noContent().build();
 	}
