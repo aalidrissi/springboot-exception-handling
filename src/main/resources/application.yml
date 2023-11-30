@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/caching?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password: 123456789
+    url: jdbc:mysql://localhost:3307/db
+    username: user
+    password: password
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
